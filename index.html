@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Policy Perspectives — [Chinmaya Patro]</title>
+<title>Policy Perspectives — Chinmaya Patro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -155,15 +155,14 @@
     background: var(--gold-light);
     padding: 0.75rem 1.8rem;
     text-decoration: none;
+    cursor: pointer; border: none;
     transition: background 0.2s, transform 0.15s;
   }
   .read-btn:hover { background: var(--gold); transform: translateY(-1px); }
   .read-btn svg { width: 16px; height: 16px; }
 
   /* sidebar recent articles */
-  .masthead-sidebar {
-    padding-top: 0.5rem;
-  }
+  .masthead-sidebar { padding-top: 0.5rem; }
   .sidebar-label {
     font-family: var(--sans); font-size: 0.65rem; font-weight: 500;
     letter-spacing: 0.22em; text-transform: uppercase;
@@ -233,6 +232,139 @@
     color: var(--gold-light);
   }
 
+  /* ── ESSAYS SECTION (NEW) ── */
+  .essays-section {
+    background: #f0ead8;
+    padding: 5rem 2rem;
+    border-top: 4px solid var(--navy);
+  }
+  .essays-inner { max-width: 1200px; margin: 0 auto; }
+  .essays-section-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 0.7rem; margin-bottom: 3rem;
+  }
+  .essays-section-title {
+    font-family: var(--sans); font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--navy);
+  }
+  .essays-section-link {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold);
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .essays-section-link:hover { opacity: 0.7; }
+
+  /* Featured essay: 2-col full-bleed */
+  .essay-feat {
+    display: grid; grid-template-columns: 1fr 1fr;
+    overflow: hidden; margin-bottom: 3rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    text-decoration: none; color: inherit;
+  }
+  .essay-feat:hover { box-shadow: 0 8px 48px rgba(0,0,0,0.15); }
+  .essay-feat-img {
+    position: relative; overflow: hidden; min-height: 500px;
+  }
+  .essay-feat-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.7s ease;
+  }
+  .essay-feat:hover .essay-feat-img img { transform: scale(1.04); }
+  .essay-feat-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(13,27,42,0.3), transparent);
+  }
+  .essay-feat-body {
+    padding: 3.5rem;
+    background: var(--navy);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .essay-feat-body .card-category {
+    color: var(--gold-light); margin-bottom: 1rem;
+  }
+  .essay-feat-body h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.25; margin-bottom: 1.2rem;
+  }
+  .essay-feat-body .essay-lead {
+    font-family: var(--body); font-size: 0.97rem; font-weight: 300;
+    font-style: italic; color: rgba(255,255,255,0.6);
+    line-height: 1.75; margin-bottom: 2rem;
+    border-left: 2px solid var(--gold); padding-left: 1rem;
+  }
+  .essay-feat-body .essay-meta {
+    font-family: var(--sans); font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    display: flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+  .essay-feat-body .essay-meta .sep { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
+  .essay-read-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--navy); background: var(--gold-light);
+    padding: 0.65rem 1.5rem;
+    border: none; cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .essay-read-btn:hover { background: var(--gold); }
+
+  /* Essay 2-col grid */
+  .essay-grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+  .essay-card {
+    cursor: pointer; text-decoration: none; color: inherit;
+    border: 1px solid rgba(0,0,0,0.08); overflow: hidden;
+    background: var(--white);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .essay-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+  }
+  .essay-card-img {
+    width: 100%; aspect-ratio: 16/9; overflow: hidden; position: relative;
+  }
+  .essay-card-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .essay-card:hover .essay-card-img img { transform: scale(1.04); }
+  .essay-card-body { padding: 1.8rem 2rem 2rem; flex: 1; display: flex; flex-direction: column; }
+  .essay-card-body .card-category { margin-bottom: 0.7rem; }
+  .essay-card-body h3 {
+    font-family: var(--serif); font-size: 1.25rem; font-weight: 700;
+    color: var(--text-dark); line-height: 1.3; margin-bottom: 0.8rem;
+  }
+  .essay-card-body p {
+    font-family: var(--body); font-size: 0.9rem; font-weight: 300;
+    color: var(--text-mid); line-height: 1.7; flex: 1; margin-bottom: 1.2rem;
+  }
+  .essay-card-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: auto;
+  }
+  .essay-card-foot .meta {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--text-muted);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .essay-card-foot .meta .sep { width: 2px; height: 2px; background: var(--text-muted); border-radius: 50%; }
+  .essay-arrow {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold);
+  }
+
   /* ── MAIN GRID SECTION ── */
   .main-section {
     max-width: 1200px; margin: 0 auto;
@@ -282,12 +414,10 @@
     display: flex; align-items: center; gap: 0.5rem;
   }
   .card-meta .sep { width: 2px; height: 2px; background: var(--text-muted); border-radius: 50%; }
-  .card-img {
-    width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 1rem;
+  .card-photo {
+    width: 100%; aspect-ratio: 16/9; object-fit: cover;
+    margin-bottom: 1rem; display: block;
     background: var(--navy-light);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 3rem; color: rgba(255,255,255,0.08);
-    letter-spacing: 0.1em;
   }
   .card-img-placeholder {
     width: 100%; aspect-ratio: 16/9;
@@ -308,6 +438,8 @@
   .wide-img {
     width: 100%; aspect-ratio: 4/3; overflow: hidden;
   }
+  .wide-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+  .article-wide:hover .wide-img img { transform: scale(1.03); }
   .wide-img svg { width: 100%; height: 100%; display: block; }
   .wide-body { display: flex; flex-direction: column; justify-content: center; }
   .wide-body .card-title { font-size: 1.6rem; margin-bottom: 1rem; }
@@ -336,7 +468,7 @@
     color: var(--gold);
   }
 
-  /* ── ABOUT + NEWSLETTER ── */
+  /* ── ABOUT ── */
   .about-section {
     background: var(--cream-dark);
     padding: 4rem 2rem;
@@ -347,14 +479,12 @@
     max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
   }
-  .about-img-wrap {
-    position: relative;
-  }
+  .about-img-wrap { position: relative; }
   .about-img-box {
     width: 100%; aspect-ratio: 3/4; max-width: 340px;
     background: var(--navy-mid);
     display: flex; align-items: center; justify-content: center;
-    position: relative;
+    position: relative; overflow: hidden;
   }
   .about-img-box::after {
     content: '';
@@ -367,7 +497,6 @@
     font-family: var(--serif); font-size: 6rem; font-weight: 700;
     color: rgba(255,255,255,0.15);
   }
-  .about-text .section-header { margin-top: 0; }
   .about-eyebrow {
     font-family: var(--sans); font-size: 0.65rem; font-weight: 500;
     letter-spacing: 0.22em; text-transform: uppercase;
@@ -392,51 +521,37 @@
     color: var(--text-mid);
   }
 
-  /* ── NEWSLETTER ── */
-  .newsletter-section {
+  /* ── CONTACT ── */
+  .contact-section {
     background: var(--navy);
     padding: 5rem 2rem;
   }
-  .newsletter-inner {
+  .contact-inner {
     max-width: 580px; margin: 0 auto; text-align: center;
   }
-  .newsletter-inner .eyebrow {
+  .contact-inner .eyebrow {
     font-family: var(--sans); font-size: 0.65rem; font-weight: 500;
     letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 0.8rem;
   }
-  .newsletter-inner h2 {
+  .contact-inner h2 {
     font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 700; color: var(--white); margin-bottom: 0.8rem;
   }
-  .newsletter-inner p {
+  .contact-inner p {
     font-family: var(--body); font-size: 0.95rem; font-weight: 300;
     color: rgba(255,255,255,0.6); margin-bottom: 2rem; line-height: 1.7;
   }
-  .newsletter-form {
-    display: flex; gap: 0; border: 1px solid var(--gold);
-  }
-  .newsletter-form input {
-    flex: 1; padding: 0.85rem 1.2rem;
-    background: rgba(255,255,255,0.05);
-    border: none; outline: none;
-    font-family: var(--sans); font-size: 0.9rem;
-    color: var(--white);
-  }
-  .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
-  .newsletter-form button {
+  .email-link {
+    display: inline-flex; align-items: center; justify-content: center;
     padding: 0.85rem 1.8rem;
-    background: var(--gold-light); border: none;
+    background: var(--gold-light);
     font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--navy); cursor: pointer; transition: background 0.2s;
-    white-space: nowrap;
+    color: var(--navy); text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
   }
-  .newsletter-form button:hover { background: var(--gold); }
-  .newsletter-disclaimer {
-    font-family: var(--sans); font-size: 0.68rem;
-    color: rgba(255,255,255,0.25); margin-top: 0.8rem;
-  }
+  .email-link:hover { background: var(--gold); transform: translateY(-1px); }
 
   /* ── FOOTER ── */
   footer {
@@ -492,6 +607,162 @@
   }
   .footer-social a:hover { color: var(--gold-light); }
 
+  /* ── ESSAY READER MODAL ── */
+  .reader-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 400;
+    background: var(--cream);
+    overflow-y: auto;
+  }
+  .reader-overlay.open { display: block; }
+
+  .reader-progress {
+    position: fixed; top: 0; left: 0; z-index: 410;
+    height: 3px; background: var(--gold);
+    width: 0%; transition: width 0.08s linear;
+    pointer-events: none;
+  }
+
+  .reader-topbar {
+    position: sticky; top: 0; z-index: 405;
+    background: rgba(245,240,232,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.9rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .reader-back {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); background: none; border: none;
+    cursor: pointer; display: flex; align-items: center; gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .reader-back:hover { color: var(--gold); }
+  .reader-topbar-title {
+    font-family: var(--sans); font-size: 0.78rem;
+    color: var(--text-mid); max-width: 500px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .reader-topbar-meta {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--text-muted);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .reader-body-wrap {
+    max-width: 720px; margin: 0 auto; padding: 4rem 2rem 7rem;
+  }
+  .reader-category {
+    font-family: var(--sans); font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; display: block;
+  }
+  .reader-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.18;
+    color: var(--navy); margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  .reader-meta {
+    font-family: var(--sans); font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+    flex-wrap: wrap;
+  }
+  .reader-meta .sep { width: 3px; height: 3px; background: var(--text-muted); border-radius: 50%; }
+  .reader-meta .read-badge {
+    background: var(--navy); color: var(--gold-light);
+    padding: 0.15rem 0.6rem;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .reader-hero {
+    width: 100%; aspect-ratio: 16/9; object-fit: cover;
+    margin-bottom: 3rem; display: block;
+  }
+  .reader-hero-caption {
+    font-family: var(--sans); font-size: 0.72rem;
+    color: var(--text-muted); margin-top: -2.5rem;
+    margin-bottom: 3rem; padding-top: 0.6rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Essay body typography */
+  .reader-content p {
+    font-family: var(--body); font-size: 1.08rem; font-weight: 300;
+    line-height: 1.9; color: var(--text-mid);
+    margin-bottom: 1.6rem;
+  }
+  .reader-content > p:first-of-type::first-letter {
+    font-family: var(--serif); font-size: 4.2rem; font-weight: 700;
+    color: var(--navy); float: left; line-height: 0.82;
+    margin-right: 0.1em; margin-top: 0.12em;
+  }
+  .reader-content h2 {
+    font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
+    color: var(--navy); margin-top: 3rem; margin-bottom: 1rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
+  }
+  .reader-content h3 {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-top: 2.5rem; margin-bottom: 0.8rem;
+  }
+  .reader-content blockquote {
+    margin: 2.5rem 0; padding: 1.5rem 2rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(184,134,11,0.05);
+    font-family: var(--serif); font-size: 1.15rem;
+    font-style: italic; color: var(--navy);
+    line-height: 1.7;
+  }
+  .reader-content .data-note {
+    background: rgba(13,27,42,0.04);
+    border: 1px solid rgba(13,27,42,0.1);
+    padding: 1.2rem 1.5rem; margin: 2rem 0;
+    font-family: var(--sans); font-size: 0.82rem;
+    color: var(--text-mid); line-height: 1.7;
+  }
+  .reader-content .data-note strong {
+    font-weight: 600; color: var(--navy);
+    font-family: var(--sans); font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    display: block; margin-bottom: 0.4rem;
+  }
+
+  .reader-end {
+    margin-top: 4rem; padding-top: 2.5rem;
+    border-top: 2px solid var(--navy);
+  }
+  .reader-end-label {
+    font-family: var(--sans); font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .reader-end-author {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.3rem;
+  }
+  .reader-end-bio {
+    font-family: var(--body); font-size: 0.9rem; font-weight: 300;
+    color: var(--text-mid); line-height: 1.7;
+  }
+  .reader-share {
+    display: flex; gap: 0.8rem; margin-top: 2rem; flex-wrap: wrap;
+  }
+  .share-btn {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(0,0,0,0.15); background: none;
+    color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .share-btn:hover { border-color: var(--gold); color: var(--gold); }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -511,86 +782,21 @@
     .about-inner { grid-template-columns: 1fr; gap: 2rem; }
     .about-img-wrap { display: none; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .nav-links { display: none; }
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1rem 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; border-bottom: 1px solid var(--gold); }
+    .nav-links.open { display: flex; }
     .nav-hamburger { display: block; }
+    .essay-feat { grid-template-columns: 1fr; }
+    .essay-feat-img { min-height: 300px; }
+    .essay-grid-2 { grid-template-columns: 1fr; }
+    .reader-topbar-title { display: none; }
   }
   @media (max-width: 640px) {
     .articles-grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; }
   }
-
-  /* Add post modal */
-  .modal-backdrop {
-    display: none;
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(8,15,24,0.85);
-    align-items: center; justify-content: center;
-    padding: 1rem;
-  }
-  .modal-backdrop.open { display: flex; }
-  .modal {
-    background: var(--cream);
-    max-width: 700px; width: 100%;
-    max-height: 90vh; overflow-y: auto;
-    padding: 2.5rem;
-    position: relative;
-  }
-  .modal-close {
-    position: absolute; top: 1.2rem; right: 1.2rem;
-    font-family: var(--sans); font-size: 1.4rem;
-    background: none; border: none; cursor: pointer;
-    color: var(--text-muted);
-  }
-  .modal h2 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1rem; color: var(--navy); }
-  .modal label { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.3rem; margin-top: 1rem; }
-  .modal input, .modal textarea, .modal select {
-    width: 100%; padding: 0.7rem 0.9rem;
-    border: 1px solid rgba(0,0,0,0.15);
-    background: var(--white); font-family: var(--body); font-size: 0.95rem;
-    color: var(--text-dark); outline: none;
-    transition: border-color 0.2s;
-  }
-  .modal input:focus, .modal textarea:focus, .modal select:focus { border-color: var(--gold); }
-  .modal textarea { resize: vertical; min-height: 160px; }
-  .modal-actions { display: flex; gap: 1rem; margin-top: 1.8rem; }
-  .btn-primary {
-    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.75rem 2rem; background: var(--navy); color: var(--white);
-    border: none; cursor: pointer; transition: background 0.2s;
-  }
-  .btn-primary:hover { background: var(--navy-mid); }
-  .btn-secondary {
-    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.75rem 2rem; background: transparent; color: var(--text-mid);
-    border: 1px solid rgba(0,0,0,0.2); cursor: pointer; transition: all 0.2s;
-  }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* Admin bar */
-  .admin-bar {
-    background: var(--gold);
-    padding: 0.45rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .admin-bar span { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; color: var(--navy); }
-  .admin-btn {
-    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.3rem 1rem; background: var(--navy); color: var(--white);
-    border: none; cursor: pointer; transition: opacity 0.2s;
-  }
-  .admin-btn:hover { opacity: 0.8; }
 </style>
 </head>
 <body>
-
-<!-- Admin bar (remove from public version) -->
-<div class="admin-bar">
-  <span>✎ Author Mode &mdash; Customize your site and add posts below</span>
-  <button class="admin-btn" onclick="openModal()">+ New Post</button>
-</div>
 
 <!-- Navigation -->
 <nav>
@@ -600,12 +806,13 @@
       <span class="nav-brand-sub">Policy Research &amp; Analysis</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#essays">Essays</a></li>
+      <li><a href="#essays-archive">Essays</a></li>
+      <li><a href="#essays">Analysis</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#topics">Topics</a></li>
-      <li><a href="#newsletter" class="cta">Subscribe</a></li>
+      <li><a href="#contact" class="cta">Email</a></li>
     </ul>
-    <button class="nav-hamburger">&#9776;</button>
+    <button class="nav-hamburger" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
   </div>
 </nav>
 
@@ -614,64 +821,141 @@
   <div class="masthead-inner">
     <div>
       <span class="masthead-tag">Featured Essay</span>
-      <h1>Why India's Climate Policy Demands a Federal Architecture</h1>
+      <h1>The Caste Census Question: Enumerating Identity in a Democratic Republic</h1>
       <p class="masthead-excerpt">
-        Centralised mandates alone cannot drive the decarbonisation required by 2070. 
-        A re-imagined cooperative federalism—one that grants states fiscal authority 
-        over green transitions—offers a more durable path.
+        India has counted its people since 1871—religion, language, disability, occupation. 
+        Yet for nearly a century, the state has refused to enumerate Other Backward Classes. 
+        The reasons reveal not administrative limits, but political settlements.
       </p>
       <div class="masthead-meta">
         <span>Chinmaya Patro</span>
         <span class="sep"></span>
         <span>May 2026</span>
         <span class="sep"></span>
-        <span>12 min read</span>
+        <span>14 min read</span>
       </div>
-      <a href="#" class="read-btn">
+      <button class="read-btn" onclick="openEssay('caste-census')">
         Read Essay
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M3 8h10M9 4l4 4-4 4"/>
         </svg>
-      </a>
+      </button>
     </div>
 
     <aside class="masthead-sidebar">
       <div class="sidebar-label">Recent Essays</div>
 
-      <a href="#" class="sidebar-item">
+      <a href="#" class="sidebar-item" onclick="event.preventDefault(); openEssay('pli-scheme')">
         <span class="sidebar-num">01</span>
         <div>
-          <h4>Digital Public Infrastructure and the Governance Deficit</h4>
-          <span class="s-meta">Technology Policy · Apr 2026</span>
+          <h4>The PLI Gamble: Incentive-Led Industrialisation vs. Structural Reform</h4>
+          <span class="s-meta">Economic Policy · Apr 2026</span>
         </div>
       </a>
 
-      <a href="#" class="sidebar-item">
+      <a href="#" class="sidebar-item" onclick="event.preventDefault(); openEssay('municipal-finance')">
         <span class="sidebar-num">02</span>
         <div>
-          <h4>Urban Housing Policy at the Intersection of Informality</h4>
-          <span class="s-meta">Urban Policy · Mar 2026</span>
+          <h4>Urban Local Bodies and the Fiscal Chasm</h4>
+          <span class="s-meta">Urban Governance · Mar 2026</span>
         </div>
       </a>
 
-      <a href="#" class="sidebar-item">
+      <a href="#" class="sidebar-item" onclick="event.preventDefault(); openEssay('gig-economy')">
         <span class="sidebar-num">03</span>
         <div>
-          <h4>India's Labour Code Reforms: A Critical Assessment</h4>
+          <h4>Platform Work and India's Social Security Deficit</h4>
           <span class="s-meta">Labour Policy · Feb 2026</span>
         </div>
       </a>
 
-      <a href="#" class="sidebar-item">
+      <a href="#" class="sidebar-item" onclick="event.preventDefault(); openEssay('nep-2020')">
         <span class="sidebar-num">04</span>
         <div>
-          <h4>The Political Economy of Fertiliser Subsidies</h4>
-          <span class="s-meta">Agricultural Policy · Jan 2026</span>
+          <h4>NEP 2020 at Implementation: Vision to Institutional Reality</h4>
+          <span class="s-meta">Education Policy · Jan 2026</span>
         </div>
       </a>
     </aside>
   </div>
 </div>
+
+<!-- ── ESSAYS SECTION ── -->
+<section class="essays-section" id="essays-archive">
+  <div class="essays-inner">
+    <div class="essays-section-header">
+      <span class="essays-section-title">Long-Form Essays</span>
+      <a href="#" class="essays-section-link">Full Archive →</a>
+    </div>
+
+    <!-- Featured Essay: Caste Census -->
+    <a class="essay-feat" href="#" onclick="event.preventDefault(); openEssay('caste-census')">
+      <div class="essay-feat-img">
+        <img
+          src="https://images.unsplash.com/photo-1599030615767-2f8d373cb1ce?w=900&h=600&fit=crop&q=80"
+          alt="Indian Parliament and governance"
+          onerror="this.style.background='#1a2e42'; this.removeAttribute('src')"
+        />
+      </div>
+      <div class="essay-feat-body">
+        <span class="card-category">Governance &amp; Social Policy</span>
+        <h2>The Caste Census Question: Enumerating Identity in a Democratic Republic</h2>
+        <p class="essay-lead">
+          Since 1931, the Indian state has refused to count Other Backward Classes in the main population census. Bihar's 2023 caste survey changed the conversation—but the deeper question is whether the state has the political will to act on what counting reveals.
+        </p>
+        <div class="essay-meta">
+          <span>Chinmaya Patro</span>
+          <span class="sep"></span>
+          <span>May 2026</span>
+          <span class="sep"></span>
+          <span>14 min read</span>
+        </div>
+        <button class="essay-read-btn">Read Full Essay →</button>
+      </div>
+    </a>
+
+    <!-- Two essay cards -->
+    <div class="essay-grid-2">
+      <a class="essay-card" href="#" onclick="event.preventDefault(); openEssay('pli-scheme')">
+        <div class="essay-card-img">
+          <img
+            src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&h=400&fit=crop&q=80"
+            alt="Industrial policy and manufacturing"
+            onerror="this.style.background='#243b55'; this.removeAttribute('src')"
+          />
+        </div>
+        <div class="essay-card-body">
+          <span class="card-category">Economic Policy</span>
+          <h3>The PLI Gamble: Can Incentive-Led Industrialisation Substitute for Structural Reform?</h3>
+          <p>At ₹1.97 lakh crore committed across fourteen sectors, the Production Linked Incentive scheme is the most ambitious industrial policy intervention since liberalisation. But the gap between disbursements projected and targets achieved exposes a fundamental tension between fiscal incentives and institutional reform.</p>
+          <div class="essay-card-foot">
+            <div class="meta"><span>Apr 2026</span><span class="sep"></span><span>12 min</span></div>
+            <span class="essay-arrow">Read →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="essay-card" href="#" onclick="event.preventDefault(); openEssay('municipal-finance')">
+        <div class="essay-card-img">
+          <img
+            src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=700&h=400&fit=crop&q=80"
+            alt="Indian urban infrastructure"
+            onerror="this.style.background='#1a2e42'; this.removeAttribute('src')"
+          />
+        </div>
+        <div class="essay-card-body">
+          <span class="card-category">Urban Governance</span>
+          <h3>Urban Local Bodies and the Fiscal Chasm: Why India's Cities Cannot Finance Their Own Growth</h3>
+          <p>India's urban population will cross 600 million by 2030, yet Urban Local Bodies collectively raise less than 1% of national GDP in own-source revenues. The 74th Amendment promised self-governing cities. Four decades on, the promise remains largely undelivered.</p>
+          <div class="essay-card-foot">
+            <div class="meta"><span>Mar 2026</span><span class="sep"></span><span>11 min</span></div>
+            <span class="essay-arrow">Read →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- Topics stripe -->
 <div class="stripe" id="topics">
@@ -686,6 +970,7 @@
     <a href="#" class="topic-pill">Fiscal Policy</a>
     <a href="#" class="topic-pill">Governance</a>
     <a href="#" class="topic-pill">Health Policy</a>
+    <a href="#" class="topic-pill">Education</a>
   </div>
 </div>
 
@@ -698,47 +983,13 @@
     <a href="#" class="section-link">View Archive →</a>
   </div>
 
-  <a href="#" class="article-wide">
+  <a href="#" class="article-wide" onclick="event.preventDefault(); openEssay('dpi-governance')">
     <div class="wide-img">
-      <!-- SVG placeholder art: policy / cityscape -->
-      <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
-        <rect width="560" height="420" fill="#1a2e42"/>
-        <!-- skyline blocks -->
-        <rect x="40" y="200" width="40" height="180" fill="#243b55" rx="1"/>
-        <rect x="90" y="160" width="55" height="220" fill="#1e3450" rx="1"/>
-        <rect x="155" y="220" width="30" height="160" fill="#243b55" rx="1"/>
-        <rect x="195" y="140" width="70" height="240" fill="#1e3450" rx="1"/>
-        <rect x="275" y="180" width="45" height="200" fill="#243b55" rx="1"/>
-        <rect x="330" y="120" width="60" height="260" fill="#1e3450" rx="1"/>
-        <rect x="400" y="200" width="50" height="180" fill="#243b55" rx="1"/>
-        <rect x="460" y="170" width="65" height="210" fill="#1e3450" rx="1"/>
-        <!-- windows -->
-        <rect x="100" y="175" width="8" height="8" fill="#b8860b" opacity="0.6"/>
-        <rect x="115" y="175" width="8" height="8" fill="#d4a017" opacity="0.4"/>
-        <rect x="100" y="195" width="8" height="8" fill="#d4a017" opacity="0.5"/>
-        <rect x="115" y="195" width="8" height="8" fill="#b8860b" opacity="0.3"/>
-        <rect x="200" y="155" width="10" height="10" fill="#d4a017" opacity="0.5"/>
-        <rect x="220" y="155" width="10" height="10" fill="#b8860b" opacity="0.4"/>
-        <rect x="240" y="155" width="10" height="10" fill="#d4a017" opacity="0.6"/>
-        <rect x="200" y="175" width="10" height="10" fill="#b8860b" opacity="0.3"/>
-        <rect x="240" y="175" width="10" height="10" fill="#d4a017" opacity="0.4"/>
-        <rect x="340" y="135" width="10" height="10" fill="#d4a017" opacity="0.7"/>
-        <rect x="358" y="135" width="10" height="10" fill="#b8860b" opacity="0.4"/>
-        <rect x="376" y="135" width="10" height="10" fill="#d4a017" opacity="0.5"/>
-        <rect x="340" y="155" width="10" height="10" fill="#b8860b" opacity="0.3"/>
-        <rect x="376" y="155" width="10" height="10" fill="#d4a017" opacity="0.6"/>
-        <!-- gradient overlay -->
-        <rect width="560" height="420" fill="url(#grad1)"/>
-        <defs>
-          <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0d1b2a" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0.7"/>
-          </linearGradient>
-        </defs>
-        <!-- gold line accent -->
-        <line x1="40" y1="200" x2="520" y2="200" stroke="#b8860b" stroke-width="1" opacity="0.4"/>
-        <text x="280" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#b8860b" opacity="0.6" letter-spacing="4">GOVERNANCE · POLICY · ANALYSIS</text>
-      </svg>
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&h=530&fit=crop&q=80"
+        alt="Digital Public Infrastructure"
+        onerror="this.style.background='#1a2e42'; this.removeAttribute('src')"
+      />
     </div>
     <div class="wide-body">
       <span class="card-category">Digital Governance</span>
@@ -757,17 +1008,12 @@
   <!-- Three-column grid -->
   <div class="articles-grid">
 
-    <a href="#" class="article-card">
-      <div class="card-img-placeholder">
-        <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
-          <rect width="360" height="200" fill="#0f6e56"/>
-          <circle cx="280" cy="40" r="55" fill="#1d9e75" opacity="0.5"/>
-          <rect x="0" y="100" width="360" height="100" fill="#085041"/>
-          <text x="30" y="80" font-family="Georgia" font-size="32" fill="rgba(255,255,255,0.12)" font-weight="700">CO₂</text>
-          <line x1="0" y1="100" x2="360" y2="100" stroke="#5dcaa5" stroke-width="1" opacity="0.5"/>
-          <text x="30" y="160" font-family="sans-serif" font-size="9" fill="#9fe1cb" letter-spacing="3" opacity="0.8">CLIMATE · ENERGY</text>
-        </svg>
-      </div>
+    <a href="#" class="article-card" onclick="event.preventDefault(); openEssay('climate-federal')">
+      <img class="card-photo"
+        src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=340&fit=crop&q=80"
+        alt="Renewable energy in India"
+        onerror="this.style.background='#0f6e56'; this.removeAttribute('src')"
+      />
       <span class="card-category">Climate Policy</span>
       <h3 class="card-title">Why India's Climate Policy Demands a Federal Architecture</h3>
       <p class="card-excerpt">Centralised mandates cannot drive the decarbonisation required by 2070. A cooperative federalism grants states fiscal authority over green transitions.</p>
@@ -777,21 +1023,11 @@
     </a>
 
     <a href="#" class="article-card">
-      <div class="card-img-placeholder">
-        <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
-          <rect width="360" height="200" fill="#243b55"/>
-          <rect x="20" y="120" width="30" height="60" fill="#3d5a78"/>
-          <rect x="60" y="90" width="30" height="90" fill="#4a6d8c"/>
-          <rect x="100" y="70" width="30" height="110" fill="#3d5a78"/>
-          <rect x="140" y="100" width="30" height="80" fill="#4a6d8c"/>
-          <rect x="180" y="50" width="30" height="130" fill="#3d5a78"/>
-          <rect x="220" y="80" width="30" height="100" fill="#4a6d8c"/>
-          <rect x="260" y="110" width="30" height="70" fill="#3d5a78"/>
-          <rect x="300" y="95" width="30" height="85" fill="#4a6d8c"/>
-          <polyline points="20,130 60,100 100,80 140,110 180,60 220,90 260,120 300,105" fill="none" stroke="#d4a017" stroke-width="2"/>
-          <text x="30" y="30" font-family="sans-serif" font-size="9" fill="rgba(212,160,23,0.7)" letter-spacing="3">FISCAL POLICY</text>
-        </svg>
-      </div>
+      <img class="card-photo"
+        src="https://images.unsplash.com/photo-1554244933-d876deb6b2ff?w=600&h=340&fit=crop&q=80"
+        alt="Fiscal policy and government spending"
+        onerror="this.style.background='#243b55'; this.removeAttribute('src')"
+      />
       <span class="card-category">Fiscal Policy</span>
       <h3 class="card-title">The Fiscal Architecture of India's Welfare State: Gaps, Overlaps, and Reforms</h3>
       <p class="card-excerpt">Concurrent jurisdiction over social spending creates perverse incentive structures that undermine both efficiency and equity in public service delivery.</p>
@@ -801,17 +1037,11 @@
     </a>
 
     <a href="#" class="article-card">
-      <div class="card-img-placeholder">
-        <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
-          <rect width="360" height="200" fill="#4a1528"/>
-          <rect x="0" y="140" width="360" height="60" fill="#26103a"/>
-          <circle cx="80" cy="90" r="40" fill="#72243e" opacity="0.6"/>
-          <circle cx="180" cy="80" r="50" fill="#72243e" opacity="0.5"/>
-          <circle cx="280" cy="95" r="38" fill="#72243e" opacity="0.6"/>
-          <line x1="0" y1="140" x2="360" y2="140" stroke="#d4537e" stroke-width="1" opacity="0.5"/>
-          <text x="30" y="30" font-family="sans-serif" font-size="9" fill="rgba(212,83,126,0.8)" letter-spacing="3">URBAN POLICY</text>
-        </svg>
-      </div>
+      <img class="card-photo"
+        src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=600&h=340&fit=crop&q=80"
+        alt="Urban housing and informality"
+        onerror="this.style.background='#4a1528'; this.removeAttribute('src')"
+      />
       <span class="card-category">Urban Policy</span>
       <h3 class="card-title">Urban Housing Policy at the Intersection of Informality and Capital</h3>
       <p class="card-excerpt">Slum rehabilitation programmes have systematically underdelivered. The failure lies not in execution but in the conceptual framework that treats informality as aberration.</p>
@@ -827,16 +1057,26 @@
     <div class="card-divider"></div>
     <div class="articles-grid">
 
-      <a href="#" class="article-card">
+      <a href="#" class="article-card" onclick="event.preventDefault(); openEssay('gig-economy')">
+        <img class="card-photo"
+          src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&h=340&fit=crop&q=80"
+          alt="Gig workers and platform economy"
+          onerror="this.style.background='#1a1a2e'; this.removeAttribute('src')"
+        />
         <span class="card-category">Labour Policy</span>
-        <h3 class="card-title">India's Four Labour Codes: A Critical Assessment of Reform Under Pressure</h3>
-        <p class="card-excerpt">The consolidation of 44 central labour laws into four codes was presented as historic rationalisation. The reality is more complicated.</p>
+        <h3 class="card-title">Platform Work and India's Social Security Deficit: The Gig Worker Question</h3>
+        <p class="card-excerpt">Over 7.7 million workers are employed in India's gig economy—yet most remain outside the ambit of ESIC, EPF, and the Employees' Compensation Act. The four Labour Codes offer partial remedies.</p>
         <div class="card-meta">
-          <span>Jan 2026</span><span class="sep"></span><span>9 min</span>
+          <span>Feb 2026</span><span class="sep"></span><span>10 min</span>
         </div>
       </a>
 
       <a href="#" class="article-card">
+        <img class="card-photo"
+          src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=340&fit=crop&q=80"
+          alt="Agriculture and fertiliser policy"
+          onerror="this.style.background='#1a3a1a'; this.removeAttribute('src')"
+        />
         <span class="card-category">Agricultural Policy</span>
         <h3 class="card-title">The Political Economy of Fertiliser Subsidies and Why They Persist</h3>
         <p class="card-excerpt">At ₹1.75 lakh crore annually, fertiliser subsidies dwarf most other agricultural interventions—and yet their reform remains a political third rail.</p>
@@ -845,15 +1085,70 @@
         </div>
       </a>
 
-      <a href="#" class="article-card">
-        <span class="card-category">Health Policy</span>
-        <h3 class="card-title">Ayushman Bharat at Five: Coverage Expansion Without Systemic Reform</h3>
-        <p class="card-excerpt">The scheme has enrolled over 500 million beneficiaries. Yet hospitalisation rates, out-of-pocket expenditure, and catastrophic health spending tell a more sobering story.</p>
+      <a href="#" class="article-card" onclick="event.preventDefault(); openEssay('nep-2020')">
+        <img class="card-photo"
+          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=340&fit=crop&q=80"
+          alt="Education policy and NEP 2020"
+          onerror="this.style.background='#1a1a3a'; this.removeAttribute('src')"
+        />
+        <span class="card-category">Education Policy</span>
+        <h3 class="card-title">NEP 2020 at Implementation: From Transformative Vision to Institutional Reality</h3>
+        <p class="card-excerpt">The National Education Policy promised a structural overhaul of Indian schooling and higher education. Two years after the deadline, state-level implementation tells a story of enthusiasm, constraint, and delay.</p>
         <div class="card-meta">
-          <span>Nov 2025</span><span class="sep"></span><span>13 min</span>
+          <span>Jan 2026</span><span class="sep"></span><span>13 min</span>
         </div>
       </a>
 
+    </div>
+
+    <!-- Third row -->
+    <div style="margin-top: 2.5rem;">
+      <div class="card-divider"></div>
+      <div class="articles-grid">
+
+        <a href="#" class="article-card">
+          <img class="card-photo"
+            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=340&fit=crop&q=80"
+            alt="Healthcare and Ayushman Bharat"
+            onerror="this.style.background='#0d2e2e'; this.removeAttribute('src')"
+          />
+          <span class="card-category">Health Policy</span>
+          <h3 class="card-title">Ayushman Bharat at Five: Coverage Expansion Without Systemic Reform</h3>
+          <p class="card-excerpt">The scheme has enrolled over 500 million beneficiaries. Yet hospitalisation rates, out-of-pocket expenditure, and catastrophic health spending tell a more sobering story.</p>
+          <div class="card-meta">
+            <span>Nov 2025</span><span class="sep"></span><span>13 min</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <img class="card-photo"
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=340&fit=crop&q=80"
+            alt="Labour codes and employment reform"
+            onerror="this.style.background='#1a1a2e'; this.removeAttribute('src')"
+          />
+          <span class="card-category">Labour Policy</span>
+          <h3 class="card-title">India's Four Labour Codes: A Critical Assessment of Reform Under Pressure</h3>
+          <p class="card-excerpt">The consolidation of 44 central labour laws into four codes was presented as historic rationalisation. The reality—three years after notification—is considerably more complicated.</p>
+          <div class="card-meta">
+            <span>Oct 2025</span><span class="sep"></span><span>9 min</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <img class="card-photo"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=340&fit=crop&q=80"
+            alt="Governance and public administration"
+            onerror="this.style.background='#1a2e1a'; this.removeAttribute('src')"
+          />
+          <span class="card-category">Governance</span>
+          <h3 class="card-title">The District Collector in the Age of Digital Governance: Authority, Accountability, and Reform</h3>
+          <p class="card-excerpt">The office of the District Collector—colonial in origin, democratic in mandate—faces a legitimacy crisis as central schemes increasingly bypass it. What should it look like in 2030?</p>
+          <div class="card-meta">
+            <span>Sep 2025</span><span class="sep"></span><span>11 min</span>
+          </div>
+        </a>
+
+      </div>
     </div>
   </div>
 
@@ -873,9 +1168,11 @@
 <section class="about-section" id="about">
   <div class="about-inner">
     <div class="about-img-wrap">
-     <div class="about-img-box" style="padding:0; overflow:hidden;">
-  <img src="chinmaya.jpg" alt="Chinmaya Patro" style="width:100%; height:100%; object-fit:cover; display:block;">
-</div>
+      <div class="about-img-box" style="padding:0; overflow:hidden;">
+        <img src="chinmaya.jpg" alt="Chinmaya Patro" style="width:100%; height:100%; object-fit:cover; display:block;"
+          onerror="this.outerHTML='<div class=\'about-img-initial\'>CP</div>'"
+        />
+      </div>
     </div>
     <div class="about-text">
       <p class="about-eyebrow">About the Author</p>
@@ -884,7 +1181,7 @@
         I am a public policy researcher and analyst working at the intersection of governance, political economy, and institutional design in India. My work draws on secondary data and comparative administrative literature to examine why policies succeed or fail.
       </p>
       <p>
-       I am currently pursuing an undergraduate degree in Geography from Kirori Mal College.
+        I am currently pursuing an undergraduate degree in Geography from Kirori Mal College, University of Delhi.
       </p>
       <p>
         This blog is where I publish longer-form analysis that does not fit neatly within the constraints of academic journals or newspaper columns. All views are my own.
@@ -901,17 +1198,13 @@
   </div>
 </section>
 
-<!-- Newsletter -->
-<section class="newsletter-section" id="newsletter">
-  <div class="newsletter-inner">
-    <p class="eyebrow">Stay Informed</p>
-    <h2>Policy Analysis Worth Reading</h2>
-    <p>New essays delivered to your inbox — typically twice a month. No noise, no aggregation. Only original long-form analysis.</p>
-    <div class="newsletter-form">
-      <input type="email" placeholder="your@email.com" />
-      <button type="button">Subscribe</button>
-    </div>
-    <p class="newsletter-disclaimer">No spam. Unsubscribe at any time.</p>
+<!-- Contact -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <p class="eyebrow">Contact</p>
+    <h2>For questions, collaborations, or feedback</h2>
+    <p>Email is the only contact route for this site. Use it for essay responses, research conversations, speaking requests, or corrections.</p>
+    <a class="email-link" href="mailto:chintaduchinmayapatro@gmail.com">chintaduchinmayapatro@gmail.com</a>
   </div>
 </section>
 
@@ -931,222 +1224,384 @@
         <li><a href="#">Urban &amp; Housing</a></li>
         <li><a href="#">Labour Policy</a></li>
         <li><a href="#">Fiscal Policy</a></li>
+        <li><a href="#">Education</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Pages</h5>
       <ul>
-        <li><a href="#">All Essays</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Newsletter</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#essays-archive">All Essays</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Elsewhere</h5>
+      <h5>Email</h5>
       <ul>
-        <li><a href="#">Twitter / X</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Academia.edu</a></li>
-        <li><a href="#">RSS Feed</a></li>
+        <li><a href="mailto:chintaduchinmayapatro@gmail.com">chintaduchinmayapatro@gmail.com</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 Chinmaya Patro. All rights reserved.</span>
     <div class="footer-social">
-      <a href="#">Twitter</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">RSS</a>
+      <a href="mailto:chintaduchinmayapatro@gmail.com">Email</a>
     </div>
   </div>
 </footer>
 
-<!-- New Post Modal -->
-<div class="modal-backdrop" id="modal" onclick="closeModalBg(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <h2>New Essay</h2>
-    <label>Title</label>
-    <input type="text" placeholder="Essay title…" id="post-title"/>
-    <label>Category / Topic</label>
-    <select id="post-category">
-      <option>Climate &amp; Energy</option>
-      <option>Technology Policy</option>
-      <option>Urban &amp; Housing</option>
-      <option>Labour Policy</option>
-      <option>Fiscal Policy</option>
-      <option>Agricultural Policy</option>
-      <option>Health Policy</option>
-      <option>Governance</option>
-    </select>
-    <label>Short Excerpt (1–2 sentences)</label>
-    <input type="text" placeholder="A concise summary for the card view…" id="post-excerpt"/>
-    <label>Body (paste your essay text or write here)</label>
-    <textarea id="post-body" placeholder="Your essay content…&#10;&#10;You can write in plain text or paste Markdown."></textarea>
-    <label>Read Time (e.g. 10 min)</label>
-    <input type="text" placeholder="10 min" id="post-time" style="max-width:160px"/>
-    <div class="modal-actions">
-      <button class="btn-primary" onclick="publishPost()">Publish Essay</button>
-      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
-    </div>
+<!-- Essay Reader Modal -->
+<div class="reader-overlay" id="reader-overlay">
+  <div class="reader-progress" id="reader-progress"></div>
+  <div class="reader-topbar">
+    <button class="reader-back" onclick="closeEssay()">
+      ← Back to Blog
+    </button>
+    <span class="reader-topbar-title" id="reader-topbar-title"></span>
+    <span class="reader-topbar-meta" id="reader-topbar-meta"></span>
+  </div>
+  <div class="reader-body-wrap" id="reader-body-wrap">
+    <!-- Injected by JS -->
   </div>
 </div>
 
 <script>
-  // Topic pills
-  document.querySelectorAll('.topic-pill').forEach(pill => {
-    pill.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelectorAll('.topic-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-    });
-  });
+// ── ESSAY DATA ──────────────────────────────────────────────────────────────
+const ESSAYS = {
 
-  // Newsletter
-  document.querySelector('.newsletter-form button').addEventListener('click', () => {
-    const inp = document.querySelector('.newsletter-form input');
-    if (inp.value && inp.value.includes('@')) {
-      inp.value = '';
-      inp.placeholder = '✓ You\'re subscribed — thank you!';
-      inp.style.color = '#d4a017';
+  'caste-census': {
+    category: 'Governance & Social Policy',
+    title: 'The Caste Census Question: Enumerating Identity in a Democratic Republic',
+    author: 'Chinmaya Patro',
+    date: 'May 2026',
+    readTime: '14 min',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Indian_Parliament_House_New_Delhi.jpg',
+    imgCaption: 'The Parliament of India, New Delhi.',
+    body: `
+      <p>India has conducted a decennial census since 1871. In those 150 years, the state has enumerated religion, language, scheduled castes and scheduled tribes, disability, occupation, and household assets with remarkable granularity. Yet for nearly a century—since 1931—the Indian state has refused to count Other Backward Classes in the main population census. The reasons for this omission are instructive: they reveal not administrative incapacity, but the political settlements that have governed independent India's approach to social redistribution.</p>
+
+      <h2>The Historical Record</h2>
+      <p>The last full caste enumeration in independent India was conducted in 1931 under the colonial administration, and it counted approximately 4,000 distinct castes. The newly independent state, under Nehru, made a deliberate choice to discontinue caste enumeration in the main census—a decision shaped partly by Ambedkarite anxieties about caste reification and partly by Congress ideology that saw caste as an obstacle to the construction of a modern, secular national identity. Scheduled Castes and Scheduled Tribes were retained as enumerable categories, explicitly for the purpose of reservation and targeted welfare. But OBCs were left out, on the logic that enumeration might harden caste identities rather than dissolve them.</p>
+      <p>This logic would be continually tested against political reality. In 1980, the Mandal Commission estimated OBC population at 52% of India—an estimate derived from the 1931 census data, extrapolated across five decades of demographic change. This estimate remains the foundation of current OBC reservation policy, including the 27% reservation mandated by the Supreme Court in <em>Indra Sawhney v. Union of India</em> (1992). That the most consequential social policy of post-independence India rests on a population estimate nearly a century old is not merely an administrative oversight. It is a structural feature of the political economy of caste in India.</p>
+
+      <h2>What Bihar's 2023 Survey Revealed</h2>
+      <p>The debate was dramatically reframed when the Bihar government under Chief Minister Nitish Kumar conducted a state-wide caste survey in 2023—the most comprehensive sub-national caste enumeration since independence. The results were startling: Extremely Backward Classes (EBCs) constituted approximately 36% of Bihar's population, Other Backward Classes 27.1%, Scheduled Castes 19.6%, Scheduled Tribes 1.7%, and Upper Castes 15.5%. These findings had immediate political consequences: Bihar filed a petition before the Supreme Court seeking the expansion of OBC reservations beyond the 50% ceiling established in <em>Indra Sawhney</em>. The Court's response—and the Union government's reluctance to extend similar exercise nationally—illustrates the political stakes involved.</p>
+
+      <blockquote>"The Bihar data demonstrated what had long been suspected: the demographic weight of OBC communities significantly exceeds what Mandal assumed, and the internal heterogeneity within 'OBC' as a legal category is enormous."</blockquote>
+
+      <h2>The Constitutional Ambiguity</h2>
+      <p>The constitutional framework governing caste census is genuinely uncertain. Article 246 of the Constitution, read with the Union List (Entry 69), grants Parliament exclusive authority over the census. The Census Act, 1948 does not prohibit caste enumeration—it simply does not mandate it. The union government's consistent position has been that caste enumeration in the main census is undesirable because it would entrench identities; what it actually reveals is that the government prefers the ambiguity that currently prevails.</p>
+      <p>The Socio-Economic Caste Census (SECC) of 2011—which did enumerate caste—is itself a revealing case study. The SECC data on OBC populations was collected but never released. The official explanation was data quality concerns. The more plausible explanation was that its release would have disrupted the prevailing political settlements around reservation that all major parties had an interest in preserving.</p>
+
+      <div class="data-note"><strong>Data Point</strong>The SECC 2011 identified 46 lakh distinct caste entries—reflecting the enormous internal diversity that any single 'OBC' category conceals. The data has never been officially published.</div>
+
+      <h2>The Distributional Stakes</h2>
+      <p>The case for a caste census rests on several distinct arguments. First, accurate enumeration is a precondition for proportionate representation. If OBCs constitute 60% of the population rather than 52%, and they hold 27% of reservation seats in central government employment, the distributive case for revision is substantial. Second, sub-categorisation within OBC—long demanded by the most marginalised communities within the broad OBC umbrella—requires granular data that only an enumeration can provide. Third, targeted welfare programmes addressing nutrition, education, and health disparities cannot be accurately designed without knowing the population shares of the communities they purport to serve.</p>
+      <p>The arguments against are correspondingly weighty. Opponents contend that caste enumeration would harden identities and intensify competition between communities for reservation benefits—a classic collective action problem where the act of counting changes the thing being counted. They also argue that the administrative apparatus for a nationally accurate caste census does not exist: self-reported caste data is notoriously unreliable, classification is contested, and the political incentives of state governments to inflate their caste populations would distort results.</p>
+
+      <h2>The Deeper Question</h2>
+      <p>The political economy of the caste census is ultimately about which uncertainty benefits whom. The current arrangement—where OBC reservation exists but its demographic foundation is a 1930 estimate—benefits parties that can mobilise caste identities without being held accountable to precise data. A caste census would force a reckoning: with the actual share of OBCs in public employment, with the distribution of benefits within the OBC category, and with the question of whether current reservation percentages are commensurate with demographic weight.</p>
+      <p>The Supreme Court's 2024 ruling in the sub-categorisation case—which held that states may create preference hierarchies within OBC reservation to benefit the most backward communities—has made accurate enumeration more, not less, urgent. Sub-categorisation without enumeration is a policy instrument without a compass. India cannot continue to allocate its social justice architecture on the basis of data that was collected when Gandhi was still alive. The question is not whether to count, but whether the political system has the will to act on what counting reveals.</p>
+    `
+  },
+
+  'pli-scheme': {
+    category: 'Economic Policy',
+    title: 'The PLI Gamble: Can Incentive-Led Industrialisation Substitute for Structural Reform?',
+    author: 'Chinmaya Patro',
+    date: 'April 2026',
+    readTime: '12 min',
+    img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=680&fit=crop&q=80',
+    imgCaption: 'Manufacturing and industrial growth: the bet at the heart of PLI.',
+    body: `
+      <p>In September 2020, the Government of India launched the Production Linked Incentive scheme across fourteen manufacturing sectors, committing over ₹1.97 lakh crore in incentive outflows over five years. The scheme has been described as India's industrial policy renaissance—a belated acknowledgement that the "ease of doing business" framework of the 2010s was insufficient to generate the manufacturing jobs India requires. But five years into its implementation, the gap between commitments and disbursements, between investment targets and actual production, demands a more sceptical assessment.</p>
+
+      <h2>The Logic of PLI</h2>
+      <p>PLI is, at its core, a demand-side subsidy mechanism. Firms that achieve incremental sales targets above a baseline receive cash incentives as a percentage of incremental turnover. The scheme's design reflects a specific theory of India's manufacturing deficit: that the country's high factor costs—land, logistics, power, and labour compliance—make it uncompetitive relative to China, Vietnam, and Bangladesh. Fiscal incentives, on this view, compensate for structural cost disadvantages while the government pursues regulatory reform in parallel.</p>
+      <p>The theory has merit as far as it goes. India's manufacturing sector contributes approximately 17% of GDP—a share that has remained stagnant since the early 2000s, even as China, Korea, and Vietnam used industrial policy aggressively to raise their manufacturing shares. The PLI scheme is an attempt to replicate this experience, targeting sectors where India has latent comparative advantage: pharmaceuticals, electronics, automobiles, specialty chemicals, and textiles.</p>
+
+      <blockquote>"The fundamental insight behind PLI—that incentives can compensate for structural disadvantages while reforms catch up—was defensible in 2020. The problem is that the structural reforms have been slower than the incentives."</blockquote>
+
+      <h2>The Implementation Record</h2>
+      <p>By 2025, the picture was considerably more mixed than the government's communications suggested. In the mobile electronics sector—the scheme's showpiece—Apple's supplier ecosystem had expanded significantly, and India had become the second-largest iPhone manufacturer globally. This was a genuine achievement. But in textiles, the sector that employs the most workers, PLI disbursements were negligible: the scheme's design failed to account for the fragmented, largely MSME structure of Indian garment manufacturing, which cannot easily scale to meet the incremental production thresholds the scheme requires.</p>
+      <p>In specialty chemicals and pharmaceuticals, a similar pattern emerged: large incumbents captured most of the incentive pool, while the scheme did little to attract new entrants or generate technology transfer. The PLI scheme for white goods (air conditioners and LED lights) showed better results, but primarily through import substitution of components rather than the development of indigenous design and engineering capabilities.</p>
+
+      <div class="data-note"><strong>Key Figure</strong>As of March 2025, approximately ₹9,721 crore had been disbursed under PLI schemes against a projected total of ₹1.97 lakh crore—less than 5% of committed incentives, reflecting both slow ramp-up and missed production targets across multiple sectors.</div>
+
+      <h2>The Structural Reform Gap</h2>
+      <p>The scheme's architects assumed that fiscal incentives would buy the time needed for structural reforms—land acquisition, labour flexibility, logistics efficiency, power supply reliability—to take effect. This assumption has not been validated. Land acquisition remains slow and contested. The four Labour Codes have been notified but not operationalised in most states. Power tariffs for industrial consumers remain among the highest in the world in several states. Logistics costs, while declining with highway and port investments, remain significantly above comparable economies.</p>
+      <p>The result is a scheme that subsidises production without changing the underlying cost structure. Firms that qualify for PLI benefits can remain competitive; firms that miss the thresholds—typically smaller manufacturers and new entrants—face the same structural barriers as before. There is a real risk that PLI creates a two-tier manufacturing sector: a thin layer of incentivised large firms, and a vast base of uncompetitive MSMEs.</p>
+
+      <h2>What PLI Cannot Do</h2>
+      <p>The deeper limitation of PLI is that it addresses competitiveness through fiscal transfers rather than productivity improvement. A Chinese factory producing smartphones is not more competitive than an Indian factory because it receives a subsidy; it is more competitive because its labour productivity is higher, its supply chain integration is deeper, its power supply is more reliable, and its logistics are faster. PLI can close part of this gap, for specific firms, for the duration of the incentive period. It cannot close it structurally.</p>
+      <p>India's PLI moment is not without precedent. South Korea and Taiwan used industrial policy extensively in the 1960s and 70s—but their incentives were conditional on export performance and productivity targets, with firms that failed to meet targets losing support. India's PLI is more permissive, and its conditionalities are primarily about scale rather than capability. Whether this distinction matters will become visible in the post-incentive period, when beneficiary firms must compete without subsidy. The government's bet is that by then, ecosystem advantages—supplier networks, skilled labour, logistics infrastructure—will have developed sufficiently to sustain competitiveness. It is a bet worth watching closely.</p>
+    `
+  },
+
+  'municipal-finance': {
+    category: 'Urban Governance',
+    title: 'Urban Local Bodies and the Fiscal Chasm: Why India\'s Cities Cannot Finance Their Own Growth',
+    author: 'Chinmaya Patro',
+    date: 'March 2026',
+    readTime: '11 min',
+    img: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&h=680&fit=crop&q=80',
+    imgCaption: 'Delhi\'s urban density—a governance challenge as much as an infrastructure one.',
+    body: `
+      <p>India's urban population is projected to reach 600 million by 2030. The country's cities already contribute over 60% of national GDP and account for 90% of government tax revenues. Yet India's Urban Local Bodies—the constitutionally mandated institutions of urban self-governance—collectively raise less than 1% of national GDP in own-source revenues. For comparison, Brazil's municipalities raise approximately 5% of GDP; South Africa's, 6%. The gap is not incidental. It is the product of specific political choices, institutional arrangements, and incentive structures that persist despite three decades of constitutional reform.</p>
+
+      <h2>The 74th Amendment's Unfulfilled Promise</h2>
+      <p>The Constitution (74th Amendment) Act of 1992 was designed to transform Indian cities from administrative outposts of state governments into genuine units of self-governance. It created a Third Tier of government, mandated elected local bodies in every urban area, and established a Twelfth Schedule of 18 functions to be transferred to municipalities. Thirty years on, the transfers have not occurred. In most states, functions like urban planning, regulation of land use, water supply, and public health remain with state-level departments or parastatal agencies. Municipalities are left with responsibilities for solid waste management, street lighting, and local roads—important, but insufficient for a city's governance needs.</p>
+
+      <blockquote>"The 74th Amendment created the constitutional architecture of urban self-governance without creating the political economy that would make self-governance viable. It was constitution-making in lieu of reform."</blockquote>
+
+      <h2>The Revenue Problem</h2>
+      <p>Urban Local Bodies have four principal revenue sources: own-source revenues (primarily property tax), assigned revenues (state government transfers of specific tax shares), grants-in-aid from state governments, and grants from central schemes like AMRUT and Smart Cities Mission. Of these, property tax is the most significant own-source revenue—and the most politically contested. Property tax rates in most Indian cities are dramatically below the replacement cost of urban infrastructure. A study by NIPFP estimated that Indian cities collect property tax at approximately 0.15% of GDP, compared to 0.5-1.0% in comparable economies.</p>
+      <p>The reasons are structural. Property tax assessment in most cities still relies on annual rental value systems established in the colonial era, with built-in caps on periodic revision. Computerisation of property records is incomplete. Political resistance to tax revision is intense, because property owners are also voters, and most municipal councillors serve short terms with immediate electoral accountability. The result is that cities are chronically under-resourced relative to their infrastructure and service obligations.</p>
+
+      <div class="data-note"><strong>Data Point</strong>The Fifteenth Finance Commission estimated that India's ULBs require approximately ₹39,000 crore annually merely to meet the O&amp;M costs of existing water and sanitation infrastructure—a figure that does not include capital expenditure on new infrastructure or the costs of expanding coverage to underserved populations.</div>
+
+      <h2>The Parastatal Problem</h2>
+      <p>One distinctive feature of Indian urban governance is the proliferation of state-level parastatal agencies—development authorities, water boards, industrial development corporations, housing boards—that exercise functions nominally assigned to ULBs. Delhi has the Delhi Development Authority; Mumbai has the MMRDA and MWRDA alongside the BMC; Hyderabad has HMDA alongside the GHMC. These agencies typically have better access to capital markets and state government resources than ULBs, and they are staffed by IAS officers rather than the local cadres that serve municipalities.</p>
+      <p>The parastatal model has a logic: it allows state governments to retain control over high-stakes decisions about land, infrastructure, and real estate that have enormous political and fiscal implications. But it also creates coordination failures, accountability gaps, and a permanent fiscal disadvantage for ULBs. When a city needs a metro line, the state government creates a special purpose vehicle. When it needs industrial land, a development authority steps in. The municipality is left with the unglamorous residual functions—and the blame when services fail.</p>
+
+      <h2>A Path Forward</h2>
+      <p>The reforms required are neither technically complex nor fiscally prohibitive. They are politically difficult. Property tax reform requires de-linking assessment from political cycles and moving to GIS-based area-based assessment systems—a reform that Tamil Nadu and Odisha have begun but most states have not. Finance Commission devolution to ULBs needs to be conditional on functional transfer, creating incentives for state governments to actually devolve powers. Municipal bond markets, while nascent, have shown potential in cities like Pune and Ahmedabad; regulatory reform could deepen this market significantly.</p>
+      <p>Most fundamentally, India needs a political economy of urban reform that is currently absent. State government politicians have few incentives to empower mayors who may become rivals. Central government schemes for cities bypass ULBs by design, reinforcing the parastatal model. Changing this requires either a shift in the political economy of state-local relations—which is slow—or constitutional mandates with enforcement mechanisms—which is controversial. Neither is easy. But India's urbanisation is accelerating regardless, and the costs of governing it through chronically under-resourced institutions will compound with every decade of delay.</p>
+    `
+  },
+
+  'gig-economy': {
+    category: 'Labour Policy',
+    title: 'Platform Work and India\'s Social Security Deficit: The Gig Worker Question',
+    author: 'Chinmaya Patro',
+    date: 'February 2026',
+    readTime: '10 min',
+    img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=1200&h=680&fit=crop&q=80',
+    imgCaption: 'Platform delivery workers form a rapidly growing but poorly protected labour segment.',
+    body: `
+      <p>India's gig economy employs an estimated 7.7 million workers—a figure that the NITI Aayog projects will grow to 23.5 million by 2029-30. These workers power the logistics, food delivery, ride-hailing, and domestic services sectors that have become integral to urban consumption. They are also, in the main, outside the ambit of every significant labour protection India has created since independence: the Employees' State Insurance Act, the Employees' Provident Fund Act, the Minimum Wages Act as enforced, and the Maternity Benefit Act. The platform economy has created a new category of worker—neither the formal employee of post-independence labour law nor the traditional informal worker of the unorganised sector—for whom India's social protection architecture offers almost nothing.</p>
+
+      <h2>The Classification Problem</h2>
+      <p>The legal ambiguity at the centre of gig work is the employment relationship—or more precisely, its absence. Platform companies classify their workers as "independent contractors" or "partners," not employees. This classification is not merely semantic: it determines whether a worker is entitled to ESIC coverage, EPF contributions, minimum wage guarantees, gratuity, and the protections of the Industrial Disputes Act. Platform companies argue that their workers are self-employed entrepreneurs who use the platform's technology to access markets—a characterisation that courts in India have not yet definitively rejected or accepted.</p>
+      <p>The international experience is instructive. UK courts have held that Uber drivers are "workers" rather than independent contractors, entitling them to minimum wage and holiday pay. California's AB5 attempted to classify all gig workers as employees before being partially reversed by Proposition 22. The European Union has moved toward a presumption of employment relationship for platform workers. India has not yet had a definitive judicial determination on this question, and the legislative response—the Code on Social Security, 2020—has addressed the question only partially.</p>
+
+      <blockquote>"The gig worker is a legal category that falls between every stool in India's labour architecture. The question is not whether they deserve protection—they clearly do—but which institution is responsible for providing it, and how to fund it without disrupting the platform business model."</blockquote>
+
+      <h2>What the Labour Codes Offer</h2>
+      <p>The Code on Social Security, 2020—one of the four Labour Codes passed by Parliament—is the first Indian legislation to explicitly acknowledge gig and platform workers as a distinct category. It provides for the constitution of a Social Security Fund for gig workers and mandates contributions from platform aggregators. The rates and mechanisms are to be specified by the central government through rules. As of early 2026, those rules have not been notified. The Code has been passed; its operative content for gig workers remains unimplemented.</p>
+      <p>Rajasthan's Platform Based Gig Workers (Registration and Welfare) Act, 2023—the first state-level legislation specifically for gig workers—provides a partial model. It creates a mandatory registration system, establishes a welfare board funded by aggregator contributions, and provides for accident insurance and health coverage. The scheme is modest in its ambitions but represents a genuine attempt to create social protection outside the employee-employer framework. Karnataka has since passed similar legislation.</p>
+
+      <div class="data-note"><strong>Data Point</strong>A survey by Fairwork India (2024) found that no major Indian platform met all five of Fairwork's principles of fair pay, fair conditions, fair contracts, fair management, and fair representation. Only three of the ten platforms surveyed met even two of these principles.</div>
+
+      <h2>The Funding Question</h2>
+      <p>The most technically difficult aspect of gig worker social protection is funding. Traditional social insurance (ESIC, EPF) is financed through matched contributions from employers and employees, with the stable employment relationship providing the mechanism for contribution collection. Gig work is episodic, multi-platform, and characterised by high churn. A worker may simultaneously engage with three platforms and switch between them week by week. Contribution portability across platforms requires a centralised registration and contribution tracking system—for which India's DPI stack (particularly the EPFO's Universal Account Number system) provides a plausible foundation.</p>
+      <p>The political economy of gig worker protection is complicated by the fact that platform companies are among India's largest employers of urban youth, and their business models rest on the cost advantages that come from not employing workers in the formal sense. Any mandatory contribution regime that substantially increases platform labour costs risks either unemployment effects or the formalisation of work arrangements in ways that limit worker flexibility—which many gig workers value. The design challenge is to provide social protection without eliminating the flexibility that makes platform work attractive. India has not yet found that balance, and the window for policy action is narrowing as the sector grows.</p>
+    `
+  },
+
+  'nep-2020': {
+    category: 'Education Policy',
+    title: 'NEP 2020 at Implementation: From Transformative Vision to Institutional Reality',
+    author: 'Chinmaya Patro',
+    date: 'January 2026',
+    readTime: '13 min',
+    img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=680&fit=crop&q=80',
+    imgCaption: 'University campuses must navigate NEP\'s multidisciplinary vision against resource constraints.',
+    body: `
+      <p>The National Education Policy 2020 is, by the standards of Indian policy documents, genuinely ambitious. In 66 pages, it proposes to fundamentally restructure school education from a 10+2 to a 5+3+3+4 system, make mother tongue the medium of instruction through Class 5, introduce a new National Curriculum Framework, create the Academic Bank of Credits for higher education, transform the University Grants Commission into the Higher Education Commission of India, and raise public spending on education to 6% of GDP. Two years past the 2025 target for full implementation, the distance between the Policy's vision and institutional reality is the most important story in Indian education.</p>
+
+      <h2>School Education: The Foundational Literacy Challenge</h2>
+      <p>NEP 2020's most urgent intervention is also its most foundational: NIPUN Bharat (National Initiative for Proficiency in Reading with Understanding and Numeracy), which aims to ensure that every child achieves basic literacy and numeracy by Grade 3. The initiative was launched in 2021 with considerable fanfare and backed by the Mission Prerna framework. Annual State Report Cards tracking learning outcomes have been created. The National Achievement Survey 2021 provided a baseline: only 49% of Grade 3 students met basic reading competencies in their regional language.</p>
+      <p>Progress has been uneven. States like Himachal Pradesh and Gujarat report significant improvements in foundational literacy assessments. But large states with the greatest absolute numbers of out-of-grade children—Uttar Pradesh, Bihar, Madhya Pradesh—show slower progress, partly because the supply-side constraints that NEP cannot address on its own—teacher vacancies, multi-grade classrooms, inadequate textbooks—have not been resolved. The Annual Status of Education Report (ASER) 2024 found that while reading ability among Class 3 students had improved marginally from the 2021 baseline, the improvement was smaller than projections suggested it would be.</p>
+
+      <blockquote>"NEP 2020 is right about what needs to change. Its theory of change—that curriculum reform and new institutional structures will drive learning improvements—underweights the role of teacher capacity, which is the binding constraint in most state systems."</blockquote>
+
+      <h2>Higher Education: The Multidisciplinary Transition</h2>
+      <p>NEP's higher education provisions are architecturally ambitious: it envisions India's 40,000 higher education institutions eventually becoming "large multidisciplinary institutions" offering four-year undergraduate programmes with multiple exit and entry points. The Academic Bank of Credits (ABC) is the operational mechanism—a digital register allowing students to accumulate credits across institutions and exit with certificates, diplomas, or degrees depending on the credits accumulated.</p>
+      <p>The ABC has been created and operationalised. By mid-2025, over 1.5 crore students had registered. But the system's utility depends on institutional accreditation and credit transfer arrangements that most colleges cannot yet offer. A student in a single-faculty college in Bihar cannot use the ABC to transfer credits to a multidisciplinary institution in Pune because the curriculum frameworks, credit definitions, and quality assessments are not mutually intelligible. The infrastructure for multidisciplinary higher education—broad-based curriculum, flexible faculty appointments, interdisciplinary laboratories—requires capital investment that most state universities and affiliated colleges do not have.</p>
+
+      <div class="data-note"><strong>Data Point</strong>The Union Budget 2025-26 allocated ₹1,33,030 crore to education—approximately 2.9% of GDP, significantly below NEP's 6% target. Of this, higher education received ₹47,619 crore, of which a substantial share is absorbed by centrally funded institutions (IITs, IIMs, NITs) that serve less than 3% of enrolled students.</div>
+
+      <h2>The Language Policy Controversy</h2>
+      <p>NEP's proposal for mother tongue medium instruction through Class 5 has been the most politically contentious provision. In non-Hindi states—particularly Tamil Nadu, Karnataka, and West Bengal—it was read as a vector for Hindi imposition, despite the Policy's explicit statement that no language would be "imposed" and its endorsement of the three-language formula. The controversy has stalled implementation in several southern states, where state governments refuse to adopt the NEP's school structure until the language question is resolved to their satisfaction.</p>
+      <p>The language issue illustrates a deeper structural problem with NEP's implementation: education is on the Concurrent List, meaning both Union and state governments have legislative authority. The Union government can recommend and fund; it cannot compel. States that are ideologically aligned with NEP's vision—Gujarat, Madhya Pradesh, Uttar Pradesh—have moved faster. States where the ruling party is in opposition to the Union government—Tamil Nadu, West Bengal, Kerala—have moved more slowly. Implementation of a national education reform thus becomes hostage to federal politics in ways that the Policy's drafters may not have fully anticipated.</p>
+
+      <h2>The Fiscal Gap</h2>
+      <p>Ultimately, the implementation story of NEP 2020 is a fiscal story. The Policy's transformative ambitions—new schools for the 5+3+3+4 structure, trained teachers in every classroom, laboratory infrastructure, digital connectivity, free textbooks in regional languages through Grade 8—require a sustained increase in public expenditure on education that has not materialised. The gap between the 6% of GDP target and the actual allocation of approximately 2.9% represents several lakh crore rupees annually. Without closing that gap, NEP remains what many state education secretaries, in unguarded moments, call it: a beautifully designed architecture with no funding for the construction.</p>
+    `
+  },
+
+  'dpi-governance': {
+    category: 'Digital Governance',
+    title: 'Digital Public Infrastructure and the Governance Deficit: Who Regulates the Regulators?',
+    author: 'Chinmaya Patro',
+    date: 'April 2026',
+    readTime: '15 min',
+    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=680&fit=crop&q=80',
+    imgCaption: 'India\'s DPI stack—celebrated globally, but undergoverned domestically.',
+    body: `
+      <p>India's Digital Public Infrastructure has become the world's most-studied model for inclusive digital development. Aadhaar, with 1.4 billion enrolments, is the most extensive biometric identity system ever created. UPI processed over 13 billion transactions in March 2026 alone, accounting for nearly 80% of retail digital payments. ONDC—the Open Network for Digital Commerce—is attempting to do for e-commerce what UPI did for payments: create an open, interoperable protocol that reduces platform monopoly. Foreign governments, multilateral institutions, and development economists study India's DPI stack with a mixture of admiration and bewilderment: how did a country with India's institutional fragmentation create infrastructure of this sophistication and scale?</p>
+
+      <h2>The Regulatory Architecture Problem</h2>
+      <p>The answer, in part, is that India built DPI by operating in the gaps of its regulatory architecture. Aadhaar was created by the Unique Identification Authority of India—an executive body established by government order, not by Parliament—before the Supreme Court validated its constitutional basis in 2018. UPI was created by the National Payments Corporation of India, a private limited company owned by a consortium of banks, operating under RBI oversight but without specific statutory authority. ONDC is a Section 8 company under DPIIT. None of these entities fits neatly into India's existing regulatory frameworks for financial services, telecommunications, data protection, or competition law.</p>
+
+      <blockquote>"India built the world's most impressive digital infrastructure through institutional improvisation. That improvisation has costs that are now becoming visible—in the form of accountability gaps, regulatory arbitrage, and unresolved questions about governance."</blockquote>
+
+      <h2>The Data Protection Question</h2>
+      <p>The Digital Personal Data Protection Act, 2023 provides a statutory framework for data privacy that the DPI stack previously lacked. But the DPDP Act's exemptions—particularly the broad carve-outs for "legitimate state purposes"—mean that Aadhaar-based data processing by government agencies remains largely ungoverned by the Act's consent and purpose-limitation requirements. The Data Protection Board established under the Act has jurisdiction over private entities processing personal data; it does not have clear jurisdiction over the government's use of Aadhaar data for welfare programme delivery or law enforcement purposes.</p>
+      <p>This gap has concrete consequences. The Aadhaar-enabled Payment System (AePS), which allows biometric authentication for banking transactions, has been systematically exploited through biometric data cloning in states like Jharkhand and Odisha—with elderly beneficiaries losing MGNREGS wages and pension disbursements to fraudulent withdrawals. The UIDAI's fraud prevention architecture has improved, but the institutional accountability for these failures remains diffuse. Who investigates? Which court has jurisdiction? Which regulator is responsible?</p>
+
+      <div class="data-note"><strong>Data Point</strong>The Parliamentary Standing Committee on Finance noted in 2024 that the NPCI—which operates UPI, RuPay, FASTag, and AePS—is not subject to the Right to Information Act, is not audited by the CAG, and is not required to appear before Parliamentary committees. Its operations affect over a billion Indians, but its accountability mechanisms are those of a private company.</div>
+
+      <h2>Competition and Concentration</h2>
+      <p>UPI's success has also created a market structure problem. PhonePe and Google Pay together account for over 80% of UPI transaction volumes. NPCI's proposed market cap of 30% for any single player—which would have forced PhonePe and Google Pay to reduce their market shares—was deferred, twice, under industry pressure. The Competition Commission of India has limited authority over entities that operate licensed payment infrastructure under RBI oversight. The result is a duopoly operating a public infrastructure, with network effects that make new entry progressively more difficult.</p>
+      <p>India's DPI experiment has demonstrated that states can build world-class digital infrastructure at scale and speed that private markets could not have achieved. But infrastructure is not governance. The institutions that built DPI were optimised for building, not for the sustained, accountable operation of critical national infrastructure. India now needs a second generation of institutional reform: regulatory frameworks that are adequate for the scale and criticality of what has been built, accountability mechanisms that extend beyond the current mix of ministry oversight and industry self-regulation, and data governance frameworks that protect citizens against the uses of DPI that its architects did not anticipate.</p>
+    `
+  },
+
+  'climate-federal': {
+    category: 'Climate Policy',
+    title: 'Why India\'s Climate Policy Demands a Federal Architecture',
+    author: 'Chinmaya Patro',
+    date: 'May 2026',
+    readTime: '12 min',
+    img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=680&fit=crop&q=80',
+    imgCaption: 'India\'s renewable energy transition is among the fastest globally—but governance is lagging.',
+    body: `
+      <p>India has committed to achieving net-zero emissions by 2070 and installing 500 GW of renewable energy capacity by 2030. These are among the most ambitious climate targets of any major economy, and the pace of renewable energy deployment—India added 24 GW of solar capacity in 2024-25 alone—suggests the country is capable of meeting them. But the transition to net-zero is not simply an energy transition. It involves simultaneously decarbonising agriculture, transport, buildings, industry, and land use—and doing so in a country of continental scale, with 28 states and 8 union territories, each with distinct resource endowments, industrial structures, political economies, and capacities for institutional action.</p>
+
+      <h2>The Centralisation Problem</h2>
+      <p>India's current climate governance architecture is centralised in ways that limit its effectiveness. The National Action Plan on Climate Change establishes eight national missions. The Ministry of New and Renewable Energy sets renewable targets and approves projects. The Bureau of Energy Efficiency sets efficiency standards. States are the implementing agents for most of this policy, but they receive centralised mandates without commensurate fiscal authority or institutional capacity. The result is a pattern familiar from Indian federalism more broadly: ambitious national targets, variable state implementation, and accountability gaps that no level of government owns.</p>
+
+      <blockquote>"India's decarbonisation requires transforming agriculture in Punjab, phasing out coal in Jharkhand, electrifying transport in Maharashtra, and upgrading buildings in Rajasthan—all simultaneously. No central ministry can optimise these transitions. Only states can."</blockquote>
+
+      <h2>Fiscal Federalism and Green Finance</h2>
+      <p>The climate transition creates a distinctive fiscal federalism problem. The costs of transition fall disproportionately on coal-dependent states—Jharkhand, Chhattisgarh, Odisha—which face stranded asset losses, employment disruption in mining and thermal power, and revenue declines from royalties and taxes on coal. The benefits of transition—in the form of reduced air pollution, lower long-term energy costs, and climate resilience—are distributed more broadly and realised over longer time horizons. This asymmetry creates a political economy in which coal-dependent states have strong incentives to resist decarbonisation, and the central government has limited instruments to compensate them adequately.</p>
+      <p>The Sixteenth Finance Commission—constituted in 2024—has an opportunity to address this through a green fiscal framework that explicitly compensates states for transition costs and rewards early movers on renewable deployment. Some elements of this framework exist: the Commission already considers forest cover as a criterion for horizontal devolution, rewarding states that maintain ecological assets. Extending this logic to carbon sequestration, renewable capacity additions, and coal-exit milestones would create fiscal incentives aligned with climate targets.</p>
+
+      <div class="data-note"><strong>Data Point</strong>India's top five coal-producing states—Jharkhand, Odisha, Chhattisgarh, West Bengal, and Madhya Pradesh—have combined coal royalty revenues of over ₹25,000 crore annually. Any credible just transition framework must address the replacement of these revenues over the decarbonisation timeline.</div>
+
+      <h2>State-Level Climate Action</h2>
+      <p>The most encouraging feature of India's climate governance is the emergence of genuine state-level leadership. Tamil Nadu's offshore wind policy has set a global benchmark. Rajasthan's solar park model has attracted international investment at scale. Gujarat's early investments in the Kutch solar zone created the ecosystem that has made India's solar sector globally competitive. These achievements were not the result of central direction; they emerged from state governments that identified climate technology as a development opportunity and built the institutional capacity to realise it.</p>
+      <p>A federal climate architecture would systematise this learning. It would create a framework for states to develop their own Climate Action Plans with binding targets, supported by dedicated climate finance that does not pass through central ministry approval processes. It would establish inter-state coordination mechanisms for grid integration, since renewable energy zones in Rajasthan and Gujarat must transmit power to load centres in Maharashtra and Delhi through transmission corridors that cross multiple state boundaries. And it would create accountability mechanisms—state-level climate budgeting, emissions reporting, and parliamentary oversight—that currently do not exist.</p>
+      <p>India's ambition in climate policy is not in question. What remains unbuilt is the institutional architecture to translate that ambition into distributed, accountable action across a continental democracy. The federal design of that architecture is the most important governance challenge of the next decade.</p>
+    `
+  }
+
+};
+
+// ── ESSAY READER ────────────────────────────────────────────────────────────
+function openEssay(id) {
+  const e = ESSAYS[id];
+  if (!e) return;
+
+  const overlay = document.getElementById('reader-overlay');
+  const wrap    = document.getElementById('reader-body-wrap');
+  const topTitle = document.getElementById('reader-topbar-title');
+  const topMeta  = document.getElementById('reader-topbar-meta');
+
+  topTitle.textContent = e.title;
+  topMeta.textContent  = e.readTime + ' read';
+
+  wrap.innerHTML = `
+    <span class="reader-category">${e.category}</span>
+    <h1 class="reader-headline">${e.title}</h1>
+    <div class="reader-meta">
+      <span>${e.author}</span>
+      <span class="sep"></span>
+      <span>${e.date}</span>
+      <span class="sep"></span>
+      <span class="read-badge">${e.readTime}</span>
+    </div>
+    <img class="reader-hero" src="${e.img}" alt="${e.title}"
+      onerror="this.style.display='none'; this.nextElementSibling.style.marginTop='0'"
+    />
+    <p class="reader-hero-caption">${e.imgCaption || ''}</p>
+    <div class="reader-content">${e.body}</div>
+    <div class="reader-end">
+      <p class="reader-end-label">About the Author</p>
+      <p class="reader-end-author">Chinmaya Patro</p>
+      <p class="reader-end-bio">Public policy researcher and undergraduate student of Geography at Kirori Mal College, University of Delhi. His work focuses on governance, political economy, and institutional design in India.</p>
+      <div class="reader-share">
+        <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='✓ Copied')">Copy Link</button>
+        <a class="share-btn" href="mailto:chintaduchinmayapatro@gmail.com">Email Author</a>
+      </div>
+    </div>
+  `;
+
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  updateProgress();
+}
+
+function closeEssay() {
+  const overlay = document.getElementById('reader-overlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function updateProgress() {
+  const overlay  = document.getElementById('reader-overlay');
+  const progress = document.getElementById('reader-progress');
+  const handler  = () => {
+    const scrolled = overlay.scrollTop;
+    const total    = overlay.scrollHeight - overlay.clientHeight;
+    const pct      = total > 0 ? (scrolled / total) * 100 : 0;
+    progress.style.width = pct + '%';
+  };
+  overlay.addEventListener('scroll', handler);
+  // cleanup when closed
+  overlay.addEventListener('transitionend', () => {
+    if (!overlay.classList.contains('open')) {
+      overlay.removeEventListener('scroll', handler);
+      progress.style.width = '0%';
     }
+  }, { once: true });
+}
+
+// ── EXISTING FUNCTIONALITY ──────────────────────────────────────────────────
+document.querySelectorAll('.topic-pill').forEach(pill => {
+  pill.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.topic-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
   });
+});
 
-  // Modal
-  function openModal() {
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeModalBg(e) {
-    if (e.target === document.getElementById('modal')) closeModal();
-  }
+const navToggle = document.querySelector('.nav-hamburger');
+const navLinks = document.querySelector('.nav-links');
 
-  function publishPost() {
-    const title    = document.getElementById('post-title').value.trim();
-    const category = document.getElementById('post-category').value;
-    const excerpt  = document.getElementById('post-excerpt').value.trim();
-    const time     = document.getElementById('post-time').value.trim() || '8 min';
-    if (!title) { alert('Please enter a title.'); return; }
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+});
 
-    const now = new Date().toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
-    const grid = document.querySelector('.articles-grid');
-
-    const card = document.createElement('a');
-    card.href = '#'; card.className = 'article-card';
-    card.innerHTML = `
-      <span class="card-category">${category}</span>
-      <h3 class="card-title">${title}</h3>
-      <p class="card-excerpt">${excerpt || 'Essay recently published. Click to read the full analysis.'}</p>
-      <div class="card-meta">
-        <span>${now}</span><span class="sep"></span><span>${time}</span>
-      </div>
-    `;
-    card.addEventListener('click', e => { e.preventDefault(); alert('In a full build, this would open the essay page.'); });
-    grid.insertBefore(card, grid.firstChild);
-    closeModal();
-    document.getElementById('essays').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // Smooth card hover lift
-  document.querySelectorAll('.article-card, .article-wide').forEach(c => {
-    c.style.transition = 'transform 0.2s';
-    c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-3px)');
-    c.addEventListener('mouseleave', () => c.style.transform = '');
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open navigation');
   });
-  </section>
- <div style="margin-top:4rem;">
+});
 
-  <div class="section-header">
-    <span class="section-title">Featured Essays</span>
-  </div>
 
-  <div class="articles-grid">
 
-    <a href="#" class="article-card">
+// Smooth card hover lift
+document.querySelectorAll('.article-card, .article-wide').forEach(c => {
+  c.style.transition = 'transform 0.2s';
+  c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-3px)');
+  c.addEventListener('mouseleave', () => c.style.transform = '');
+});
 
-      <img
-        src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
-        class="card-img"
-        alt="Education Policy">
-
-      <span class="card-category">Education Policy</span>
-
-      <h3 class="card-title">
-        The Future of Education Policy in the Age of Artificial Intelligence
-      </h3>
-
-      <p class="card-excerpt">
-        Artificial intelligence is reshaping classrooms, governance,
-        and educational equity across the world.
-      </p>
-
-      <div class="card-meta">
-        <span>May 2026</span>
-        <span class="sep"></span>
-        <span>11 min</span>
-      </div>
-
-    </a>
-
-    <a href="#" class="article-card">
-
-      <img
-        src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1?q=80&w=1200&auto=format&fit=crop"
-        class="card-img"
-        alt="Urban Sustainability">
-
-      <span class="card-category">Urban Governance</span>
-
-      <h3 class="card-title">
-        Building Greener Cities Through Climate Policy
-      </h3>
-
-      <p class="card-excerpt">
-        Sustainable urban planning is becoming one of the defining
-        public policy challenges of the century.
-      </p>
-
-      <div class="card-meta">
-        <span>Apr 2026</span>
-        <span class="sep"></span>
-        <span>9 min</span>
-      </div>
-
-    </a>
-
-    <a href="#" class="article-card">
-
-      <img
-        src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop"
-        class="card-img"
-        alt="Economic Policy">
-
-      <span class="card-category">Economic Policy</span>
-
-      <h3 class="card-title">
-        Public Policy and the Fight Against Economic Inequality
-      </h3>
-
-      <p class="card-excerpt">
-        Governments worldwide are rethinking welfare, taxation,
-        and economic redistribution strategies.
-      </p>
-
-      <div class="card-meta">
-        <span>Mar 2026</span>
-        <span class="sep"></span>
-        <span>13 min</span>
-      </div>
-
-    </a>
-
-  </div>
-</div>
+// Keyboard close
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeEssay();
+  }
+});
 </script>
 </body>
 </html>
+
